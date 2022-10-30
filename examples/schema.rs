@@ -3,8 +3,8 @@ use std::fs::create_dir_all;
 
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
-use callumbis::msg::{GetPollResponse, ExecuteMsg, InstantiateMsg, QueryMsg, MigrateMsg};
-use callumbis::state::{Config,SPoll};
+use callum_bm::msg::{GetPollResponse, ExecuteMsg, InstantiateMsg, QueryMsg, MigrateMsg};
+use callum_bm::state::{Config,SPoll};
 
 fn main() {
     let mut out_dir = current_dir().unwrap();
