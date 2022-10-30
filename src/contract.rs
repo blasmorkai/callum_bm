@@ -94,8 +94,11 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
 
 
 fn query_get_poll (deps: Deps, poll_name:String) -> StdResult<Binary> {
-    let my_poll = POLL.may_load(deps.storage,poll_name)?;
-    to_binary(&GetPollResponse{poll:my_poll})
+    //may_load() returns an option. This is why the GetPollResponse needs an option parameter instead of an SPoll
+    let my_poll_option = POLL.may_load(deps.storage,poll_name)?;
+
+    //to_binary returns an StdResult<Binary>, therefore the Ok() is not needed
+    to_binary(&GetPollResponse{poll:my_poll_option})
 }
 
 

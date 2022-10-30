@@ -26,6 +26,7 @@ pub enum QueryMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct GetPollResponse {
+    //may_load() returns an option. This is why the GetPollResponse needs an option parameter instead of an SPoll
     pub poll: Option<SPoll>
 }
 

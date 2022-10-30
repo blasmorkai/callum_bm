@@ -1,15 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ExecuteMsg",
-  "anyOf": [
+  "oneOf": [
     {
       "type": "object",
       "required": [
-        "increment"
+        "create_poll_msg"
       ],
       "properties": {
-        "increment": {
-          "type": "object"
+        "create_poll_msg": {
+          "type": "object",
+          "required": [
+            "poll_name"
+          ],
+          "properties": {
+            "poll_name": {
+              "type": "string"
+            }
+          }
         }
       },
       "additionalProperties": false
@@ -17,18 +25,21 @@
     {
       "type": "object",
       "required": [
-        "reset"
+        "vote_poll_msg"
       ],
       "properties": {
-        "reset": {
+        "vote_poll_msg": {
           "type": "object",
           "required": [
-            "count"
+            "choice",
+            "poll_name"
           ],
           "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int32"
+            "choice": {
+              "type": "string"
+            },
+            "poll_name": {
+              "type": "string"
             }
           }
         }
